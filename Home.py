@@ -1,4 +1,6 @@
 import streamlit as st
+from CIDGI_survey import main as cidgi_survey
+from Democracy_Reconciliation import main as democracy_reconciliation
 
 def main():
     # Set page configuration
@@ -31,6 +33,15 @@ def main():
     if st.button("Go to Dashboard - Democracy & Reconciliation in Sri Lanka"):
         st.experimental_set_query_params(page="Democracy_Reconciliation")
         st.experimental_rerun()
+
+    # Handle navigation
+    query_params = st.experimental_get_query_params()
+    if 'page' in query_params:
+        page = query_params['page'][0]
+        if page == 'CIDGI_survey':
+            cidgi_survey()
+        elif page == 'Democracy_Reconciliation':
+            democracy_reconciliation()
 
 if __name__ == "__main__":
     main()
