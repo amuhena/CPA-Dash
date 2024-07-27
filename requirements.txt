@@ -1,6 +1,5 @@
 streamlit
 plotly
-graph_objects
 pandas
 numpy
 base64
