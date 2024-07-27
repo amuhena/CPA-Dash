@@ -2,6 +2,5 @@ streamlit
 plotly
 pandas
 numpy
-base64
 streamlit_folium
 io
