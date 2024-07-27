@@ -1,4 +1,22 @@
 import streamlit as st
+from Home import main as home
+from CIDGI_survey import main as cidgi_survey
+from Democracy_Reconciliation import main as democracy_reconciliation
+
+PAGES = {
+    "Home": home,
+    "CIDGI_survey": cidgi_survey,
+    "Democracy_Reconciliation": democracy_reconciliation
+}
+
+st.sidebar.title('Navigation')
+selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+
+if 'page' in st.experimental_get_query_params():
+    selection = st.experimental_get_query_params()['page'][0]
+
+page = PAGES.get(selection, home)
+page()
 
 # Set page configuration
 st.set_page_config(layout='wide', page_title="Home Page")
